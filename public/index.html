@@ -1,0 +1,12 @@
+
+<!DOCTYPE html>
+<html><body style="font-family:sans-serif;text-align:center;padding:50px">
+<h1 id='d' style="font-size:160px;margin:0">0</h1>
+<script>
+function load(){
+ fetch('/api/counter').then(r=>r.json()).then(j=>d.innerText=j.days);
+}
+load();
+setInterval(load,60000);
+</script>
+</body></html>

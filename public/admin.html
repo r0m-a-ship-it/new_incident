@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html><body style="font-family:sans-serif;padding:20px">
+<h2>Admin panel</h2>
+<button onclick="u('inc')">+1</button>
+<button onclick="u('dec')">-1</button>
+<input id=v type="number" placeholder="set value">
+<button onclick="u('set',v.value)">Set</button>
+<pre id=l></pre>
+<script>
+function u(a,v){
+ fetch('/api/update',{method:'POST',headers:{'Content-Type':'application/json'},
+ body:JSON.stringify({action:a,value:v})}).then(()=>load());
+}
+function load(){
+ fetch('/api/logs').then(r=>r.text()).then(t=>l.textContent=t);
+}
+load();
+</script>
+</body></html>

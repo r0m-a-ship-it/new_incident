@@ -1,0 +1,9 @@
+
+services:
+- type: web
+  name: incident-counter
+  env: node
+  buildCommand: "npm install"
+  startCommand: "npm start"
+  plan: free
+  envVars: {}
